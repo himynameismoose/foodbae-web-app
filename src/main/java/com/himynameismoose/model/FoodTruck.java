@@ -1,14 +1,18 @@
 package com.himynameismoose.model;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * This class will represent each Food Truck in San Francisco.
  */
-
+@Entity
+@Table(name = "FoodTruck")
 public class FoodTruck {
 
     // Details of a Food Truck
+    @Id
     private int id;
     private String name;
     private String address;
