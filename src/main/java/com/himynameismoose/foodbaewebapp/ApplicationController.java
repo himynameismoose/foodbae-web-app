@@ -10,4 +10,9 @@ public class ApplicationController {
     public String hello() {
         return "hello";
     }
+
+    @RequestMapping("/goodbye")
+    public String goodbye() {
+        return "goodbye";
+    }
 }
