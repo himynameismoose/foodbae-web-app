@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "FoodTruck")
 public class FoodTruck {
 
-    // Details of a Food Truck
+    // Details of Food Truck
     @Id
     private int id;
     private String name;
@@ -19,6 +19,10 @@ public class FoodTruck {
     private String food;
 
     public FoodTruck() {
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
