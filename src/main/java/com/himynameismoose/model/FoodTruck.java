@@ -6,7 +6,7 @@ import javax.persistence.*;
  * This class will represent each Food Truck in San Francisco.
  */
 @Entity
-@Table(name = "FoodTruck")
+@Table(name = "foodtruck")
 public class FoodTruck {
 
     // Details of Food Truck
