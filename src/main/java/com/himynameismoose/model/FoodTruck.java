@@ -1,8 +1,6 @@
 package com.himynameismoose.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * This class will represent each Food Truck in San Francisco.
@@ -13,6 +11,7 @@ public class FoodTruck {
 
     // Details of Food Truck
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String address;
