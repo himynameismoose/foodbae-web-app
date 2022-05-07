@@ -1,4 +1,4 @@
-package com.himynameismoose.controller;
+package com.himynameismoose.foodbaewebapp;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApplicationController {
 
-    @RequestMapping("/hello")
+    @RequestMapping()
     public String hello() {
         return "hello";
     }
