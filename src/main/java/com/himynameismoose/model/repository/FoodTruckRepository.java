@@ -1,6 +1,8 @@
 package com.himynameismoose.model.repository;
 
+import com.himynameismoose.model.FoodTruck;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * This interface will use JPA to generate code for CRUD operations
@@ -8,5 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author mershellerivera
  * version 1.0
  */
-public interface FoodTruckRepository extends JpaRepository {
+@Repository // collection of objects -> Data
+public interface FoodTruckRepository extends JpaRepository<FoodTruck, Integer> {
 }
