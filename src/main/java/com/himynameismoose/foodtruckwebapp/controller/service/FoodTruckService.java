@@ -22,6 +22,7 @@ public class FoodTruckService {
     @Autowired
     private FoodTruckRepository repo;
 
+    // CRUD Methods
     public List<FoodTruck> listAll() {
         return repo.findAll();
     }
