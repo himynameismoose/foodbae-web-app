@@ -1,6 +1,6 @@
-package com.himynameismoose.model.repository;
+package com.himynameismoose.foodtruckwebapp.controller.repository;
 
-import com.himynameismoose.model.FoodTruck;
+import com.himynameismoose.foodtruckwebapp.model.FoodTruck;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
