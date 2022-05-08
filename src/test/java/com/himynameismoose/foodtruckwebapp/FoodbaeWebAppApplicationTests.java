@@ -1,10 +1,10 @@
-package com.himynameismoose.foodbaewebapp;
+package com.himynameismoose.foodtruckwebapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FoodbaeWebAppApplicationTests {
+class FoodTruckWebAppApplicationTests {
 
 	@Test
 	void contextLoads() {
