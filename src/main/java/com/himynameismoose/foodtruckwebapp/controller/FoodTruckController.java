@@ -3,10 +3,7 @@ package com.himynameismoose.foodtruckwebapp.controller;
 import com.himynameismoose.foodtruckwebapp.controller.repository.FoodTruckRepository;
 import com.himynameismoose.foodtruckwebapp.model.FoodTruck;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,9 +22,14 @@ public class FoodTruckController {
     private FoodTruckRepository repository;
 
     // Get all food trucks
-    @GetMapping("/allfoodtrucks")
+    @GetMapping("/foodtrucks")
     public List<FoodTruck> getAllFoodTrucks() {
         return repository.findAll();
     }
-    
+
+    // create food truck rest api
+    @PostMapping("/foodtrucks")
+    public FoodTruck createFoodTruck(@RequestBody FoodTruck foodtruck) {
+        return repository.save(foodtruck);
+    }
 }
