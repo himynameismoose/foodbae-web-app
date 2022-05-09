@@ -1,5 +1,10 @@
 package com.himynameismoose.foodtruckwebapp.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 /**
@@ -8,6 +13,11 @@ import javax.persistence.*;
  * @author mershellerivera
  * @version 1.0
  */
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "foodtrucks")
 public class FoodTruck {
@@ -22,16 +32,6 @@ public class FoodTruck {
     private String address;
     @Column(name = "food")
     private String food;
-
-    public FoodTruck() {
-    }
-
-    public FoodTruck(int id, String name, String address, String food) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.food = food;
-    }
 
     public int getId() {
         return id;
