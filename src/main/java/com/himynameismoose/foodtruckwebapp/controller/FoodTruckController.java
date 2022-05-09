@@ -26,4 +26,10 @@ public class FoodTruckController {
     public List<FoodTruck> getAllFoodTrucks() {
         return repository.findAll();
     }
+
+    // create food truck REST API
+    @PostMapping
+    public FoodTruck createFoodTruck(@RequestBody FoodTruck foodtruck) {
+        return repository.save(foodtruck);
+    }
 }
