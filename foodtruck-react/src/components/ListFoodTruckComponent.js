@@ -25,18 +25,24 @@ const ListFoodTruckComponent = () => {
 
             <table className="table table-bordered table-striped">
                 <thead>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>Food</th>
+                <th>Actions</th>
                 </thead>
                 <tbody>
                 {
                     foodtrucks.map(
                         foodtruck =>
                             <tr key={foodtruck.id}>
+                                <td> {foodtruck.id} </td>
                                 <td> {foodtruck.name} </td>
                                 <td> {foodtruck.address} </td>
                                 <td> {foodtruck.food} </td>
+                                <td>
+                                    <Link className="btn btn-info" to={'/edit-foodtruck/{foodtruck.id}'}> Update </Link>
+                                </td>
                             </tr>
                     )
                 }

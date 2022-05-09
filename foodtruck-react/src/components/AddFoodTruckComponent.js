@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import { useNavigate, Link, useParams } from 'react-router-dom'
 import FoodTruckService from '../services/FoodTruckService'
 
 const AddFoodTruckComponent = () => {
@@ -8,6 +8,7 @@ const AddFoodTruckComponent = () => {
     const [address, setAddress] = useState('')
     const [food, setFood] = useState('')
     const navigate = useNavigate();
+    const {id} = useParams();
 
     const saveFoodTruck = (e) => {
         e.preventDefault();
@@ -22,6 +23,25 @@ const AddFoodTruckComponent = () => {
         })
     }
 
+    useEffect(() => {
+
+        FoodTruckService.getFoodTruckById(id).then((response) => {
+            setName(response.data.name)
+            setAddress(response.data.address)
+            setFood(response.data.food)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [])
+
+    const title = () => {
+        if(id) {
+            return <h2 className="text-center"> Update Food Truck </h2>
+        } else {
+            return <h2 className="text-center"> Add Food Truck </h2>
+        }
+    }
+
     return (
         <div>
             <br/><br/>
@@ -29,7 +49,9 @@ const AddFoodTruckComponent = () => {
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
                         <br />
-                        <h2 className="text-center"> Add Food Truck </h2>
+                        {
+                            title()
+                        }
                         <div className="card-body ">
                             <form>
                                 <div className="form-group mb-2">
