@@ -41,7 +41,7 @@ const ListFoodTruckComponent = () => {
                                 <td> {foodtruck.address} </td>
                                 <td> {foodtruck.food} </td>
                                 <td>
-                                    <Link className="btn btn-info" to={'/edit-foodtruck/{foodtruck.id}'}> Update </Link>
+                                    <Link className="btn btn-info" to={`/edit-foodtruck/${foodtruck.id}`}> Update </Link>
                                 </td>
                             </tr>
                     )

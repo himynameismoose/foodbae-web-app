@@ -4,34 +4,44 @@ import FoodTruckService from '../services/FoodTruckService'
 
 const AddFoodTruckComponent = () => {
 
-    const [name, setName] = useState('')
-    const [address, setAddress] = useState('')
-    const [food, setFood] = useState('')
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
+    const [food, setFood] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
 
-    const saveFoodTruck = (e) => {
+    const saveOrUpdateFoodTruck = (e) => {
         e.preventDefault();
 
-        const foodtruck = {name, address, food}
+        const foodtruck = {name, address, food};
 
-        FoodTruckService.createFoodTruck(foodtruck).then((response) => {
-            console.log(response.data)
-            navigate('/foodtrucks')
-        }).catch(error => {
-            console.log(error)
-        })
+        if(id) {
+            FoodTruckService.updateFoodTruckById(id, foodtruck).then((response) => {
+                navigate('/foodtrucks');
+            }).catch(error => {
+                console.log(error);
+            });
+        } else {
+            FoodTruckService.createFoodTruck(foodtruck).then((response) => {
+                console.log(response.data);
+                navigate('/foodtrucks');
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+
+
     }
 
     useEffect(() => {
 
         FoodTruckService.getFoodTruckById(id).then((response) => {
-            setName(response.data.name)
-            setAddress(response.data.address)
-            setFood(response.data.food)
+            setName(response.data.name);
+            setAddress(response.data.address);
+            setFood(response.data.food);
         }).catch(error => {
-            console.log(error)
-        })
+            console.log(error);
+        });
     }, [])
 
     const title = () => {
@@ -93,7 +103,7 @@ const AddFoodTruckComponent = () => {
                                     </input>
                                 </div>
                                 <br />
-                                <button className="btn btn-success" onClick={(e) => saveFoodTruck(e)}> Submit </button>
+                                <button className="btn btn-success" onClick={(e) => saveOrUpdateFoodTruck(e)}> Submit </button>
                                 <Link to="/foodtrucks" className="btn btn-danger">Cancel</Link>
                             </form>
                         </div>
