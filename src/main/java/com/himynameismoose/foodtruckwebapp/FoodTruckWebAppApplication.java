@@ -26,10 +26,11 @@ public class FoodTruckWebAppApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		FoodTruck foodtruck = new FoodTruck();
-		foodtruck.setName("Taco Truck");
-		foodtruck.setAddress("100 ave");
-		foodtruck.setFood("Tacos");
-		repository.save(foodtruck);
+		// test: add to the database
+//		FoodTruck foodtruck = new FoodTruck();
+//		foodtruck.setName("Taco Truck");
+//		foodtruck.setAddress("100 ave");
+//		foodtruck.setFood("Tacos");
+//		repository.save(foodtruck);
 	}
 }
