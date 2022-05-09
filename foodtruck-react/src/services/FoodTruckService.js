@@ -16,8 +16,12 @@ class FoodTruckService {
         return axios.get(FOODTRUCK_BASE_REST_API_URL + '/' + foodtruckId);
     }
 
-    updateFoodTruckById(foodtruckId, foodtruck) {
-        return axios.put(FOODTRUCK_BASE_REST_API_URL + '/' + foodtruckId, foodtruck)
+    updateFoodTruck(foodtruckId, foodtruck) {
+        return axios.put(FOODTRUCK_BASE_REST_API_URL + '/' + foodtruckId, foodtruck);
+    }
+
+    deleteFoodTruck(foodtruckId) {
+        return axios.delete(FOODTRUCK_BASE_REST_API_URL + '/' + foodtruckId);
     }
 }
 

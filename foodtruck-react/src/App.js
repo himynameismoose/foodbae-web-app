@@ -18,7 +18,6 @@ function App() {
                         <Route path="/edit-foodtruck/:id" element={<AddFoodTruckComponent/>}></Route>
                     </Routes>
                 </div>
-                <FooterComponent/>
             </Router>
         </div>
     );

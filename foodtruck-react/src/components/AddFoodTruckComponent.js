@@ -16,7 +16,7 @@ const AddFoodTruckComponent = () => {
         const foodtruck = {name, address, food};
 
         if(id) {
-            FoodTruckService.updateFoodTruckById(id, foodtruck).then((response) => {
+            FoodTruckService.updateFoodTruck(id, foodtruck).then((response) => {
                 navigate('/foodtrucks');
             }).catch(error => {
                 console.log(error);
