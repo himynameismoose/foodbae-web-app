@@ -1,17 +1,25 @@
 import React, {useState} from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import FoodTruckService from '../services/FoodTruckService'
 
 const AddFoodTruckComponent = () => {
 
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
     const [food, setFood] = useState('')
+    const navigate = useNavigate();
 
     const saveFoodTruck = (e) => {
         e.preventDefault();
 
         const foodtruck = {name, address, food}
 
-        console.log(foodtruck);
+        FoodTruckService.createFoodTruck(foodtruck).then((response) => {
+            console.log(response.data)
+            navigate('/foodtrucks')
+        }).catch(error => {
+            console.log(error)
+        })
     }
 
     return (
@@ -64,7 +72,7 @@ const AddFoodTruckComponent = () => {
                                 </div>
                                 <br />
                                 <button className="btn btn-success" onClick={(e) => saveFoodTruck(e)}> Add Food Truck </button>
-
+                                <Link to="/foodtrucks" className="btn btn-danger">Cancel</Link>
                             </form>
                         </div>
                     </div>

@@ -7,6 +7,10 @@ class FoodTruckService {
     getAllFoodTrucks() {
         return axios.get(FOODTRUCK_BASE_REST_API_URL)
     }
+
+    createFoodTruck(foodtruck) {
+        return axios.post(FOODTRUCK_BASE_REST_API_URL, foodtruck)
+    }
 }
 
 export default new FoodTruckService();
