@@ -93,7 +93,7 @@ const AddFoodTruckComponent = () => {
                                     </input>
                                 </div>
                                 <br />
-                                <button className="btn btn-success" onClick={(e) => saveFoodTruck(e)}> Add Food Truck </button>
+                                <button className="btn btn-success" onClick={(e) => saveFoodTruck(e)}> Submit </button>
                                 <Link to="/foodtrucks" className="btn btn-danger">Cancel</Link>
                             </form>
                         </div>
