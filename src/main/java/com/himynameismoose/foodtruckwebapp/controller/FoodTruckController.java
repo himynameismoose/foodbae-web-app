@@ -1,8 +1,10 @@
 package com.himynameismoose.foodtruckwebapp.controller;
 
 import com.himynameismoose.foodtruckwebapp.controller.repository.FoodTruckRepository;
+import com.himynameismoose.foodtruckwebapp.exceptions.ResourceNotFoundException;
 import com.himynameismoose.foodtruckwebapp.model.FoodTruck;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +33,14 @@ public class FoodTruckController {
     @PostMapping
     public FoodTruck createFoodTruck(@RequestBody FoodTruck foodtruck) {
         return repository.save(foodtruck);
+    }
+
+    // get food truck by id REST API
+    @GetMapping("{id}")
+    public ResponseEntity<FoodTruck> getFoodTruckByID(@PathVariable int id) {
+        FoodTruck foodtruck = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Food Truck not found"));
+
+        return ResponseEntity.ok(foodtruck);
     }
 }
