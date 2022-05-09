@@ -13,23 +13,17 @@ import java.util.List;
  * @author mershellerivera
  * @version 1.0
  */
-@CrossOrigin(origins = "http://localhost:3000") // connects to React
+@CrossOrigin("*") // connects to React
 @RestController
-@RequestMapping("/foodtrucks")
+@RequestMapping("/api/v1/foodtrucks")
 public class FoodTruckController {
 
     @Autowired
     private FoodTruckRepository repository;
 
     // Get all food trucks
-    @GetMapping("/foodtrucks")
+    @GetMapping
     public List<FoodTruck> getAllFoodTrucks() {
         return repository.findAll();
-    }
-
-    // create food truck rest api
-    @PostMapping("/foodtrucks")
-    public FoodTruck createFoodTruck(@RequestBody FoodTruck foodtruck) {
-        return repository.save(foodtruck);
     }
 }
